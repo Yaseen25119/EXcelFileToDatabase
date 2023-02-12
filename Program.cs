@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
@@ -26,8 +26,9 @@ namespace ConsoleApp2
             Console.WriteLine("Please enter the file Path:");
             string path = Console.ReadLine();
             string filepath = path.Trim(charsToTrim);
-            string databasepath = "Data Source=.;Initial Catalog=Development;Integrated Security=True";
+            string databasepath = "Data Source=.;Initial Catalog=Test;Integrated Security=True";
             var linenumber = 0;
+
 
 
 
@@ -42,23 +43,18 @@ namespace ConsoleApp2
                         if (linenumber != 0)
                         {
                             var values = line.Split(',');
-                            var sql = "INSERT INTO Development.dbo.importexcel VALUES ('" + values[0] + "','" + values[1] + "','" + values[2] + "','" + values[3] + "','" + values[4] + "','" + values[5] + "','" + values[6] + "','" + values[7] + "','" + values[8] + "','" + values[9] + "','" + values[10]+"')";
+                            var sql = "INSERT INTO Test.dbo.importexcel VALUES ('" + values[0] + "','" + values[1] + "','" + values[2] + "','" + values[3] + "','" + values[4] + "','" + values[5] + "','" + values[6] + "','" + values[7] + "','" + values[8] + "','" + values[9] + "','" + values[10]+"')";
                             var cmd = new SqlCommand();
                             cmd.CommandText = sql;
                             cmd.CommandType = System.Data.CommandType.Text;
                             cmd.Connection = con;
                             cmd.ExecuteNonQuery();
-                           // dt.Rows.Add(Convert.ToInt32( values[0]), values[1], values[2], values[3],Convert.ToInt32( values[4]), values[5], values[6], values[7], values[8], values[9],Convert.ToInt32( values[10]));
-
+                           
 
                         }
                         linenumber++;
                     }
-                    /*foreach (DataRow row in dt.Columns)
-                    {
-                        Console.WriteLine(row);
-                    }
-                    Console.WriteLine(dt.ToString());*/
+                   // Console.WriteLine(dt.ToString());*/
                 }
 
                 Console.WriteLine("Inserting data into database.");
