@@ -28,30 +28,6 @@ namespace ConsoleApp2
             string filepath = path.Trim(charsToTrim);
             string databasepath = "Data Source=.;Initial Catalog=Development;Integrated Security=True";
             var linenumber = 0;
-            string[] rows;
-            string[] columns;
-            int index = 1;
-            rows = File.ReadAllLines(filepath);
-            while(index< rows.Length)
-            {
-                columns = rows[index].Split(',');
-                Console.WriteLine(index+ ": " + columns[0]);
-                index++;
-            }
-
-            /*DataTable dt = new DataTable();
-            dt.Columns.Add("ExternalStudentID", typeof(SqlInt32));
-            dt.Columns.Add("FirstName", typeof(SqlString));
-            dt.Columns.Add("LastName", typeof(SqlString));
-            dt.Columns.Add("DOB", typeof(SqlString));
-            dt.Columns.Add("SSN", typeof(SqlInt32));
-            dt.Columns.Add("Address", typeof(SqlString));
-            dt.Columns.Add("City", typeof(SqlString));
-            dt.Columns.Add("State", typeof(SqlString));
-            dt.Columns.Add("Email", typeof(SqlString));
-            dt.Columns.Add("MaritalStatus", typeof(SqlString));
-            dt.Columns.Add("InternalStudentId", typeof(SqlInt32));*/
-
 
 
 
